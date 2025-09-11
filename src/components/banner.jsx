@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import styles from "./banner.module.css";
+import styles from "./Banner.module.css";
 import { authContext } from "../store/authStore";
 import { ChefsStore } from "../store/ChefdataStore";
 import { useNavigate } from "react-router-dom";
