@@ -1,6 +1,6 @@
 export const getUserData = async (signal, handleuserProfile) => {
   try {
-    const response = await fetch("http://localhost:3001/userDetail", {
+    const response = await fetch("https://serverofchefbooking.onrender.com/userDetail", {
       signal,
       credentials: "include",
     });

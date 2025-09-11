@@ -12,7 +12,7 @@ const Header = () => {
   const handlesignout = (e) => {
     // e.preventDefault();
 
-    fetch("http://localhost:3001/logout", {
+    fetch("https://serverofchefbooking.onrender.com/logout", {
       method: "POST",
       credentials: "include",
     })
@@ -52,7 +52,7 @@ const Header = () => {
             <img
               width="50px"
               height="50px"
-              src="http://localhost:3001/Chefwalelogo.png"
+              src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
               alt="ChefWale"
             />
           </Link>
@@ -119,7 +119,7 @@ const Header = () => {
                     aria-expanded="false"
                   >
                     <img
-                      src={`http://localhost:3001${user.image}`}
+                      src={`https://serverofchefbooking.onrender.com${user.image}`}
                       alt="mdo"
                       width="32"
                       height="32"
@@ -182,7 +182,7 @@ const Header = () => {
                     aria-expanded="false"
                   >
                     <img
-                      src={`http://localhost:3001${user.image}`}
+                      src={`https://serverofchefbooking.onrender.com${user.image}`}
                       alt="mdo"
                       width="32"
                       height="32"

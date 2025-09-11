@@ -1,6 +1,6 @@
 export const getBookingHistoryData = async (signal, handleuserProfile) => {
   try {
-    const response = await fetch("http://localhost:3001/getYourBookingsHistory", {
+    const response = await fetch("https://serverofchefbooking.onrender.com/getYourBookingsHistory", {
       signal,
       credentials: "include",
     });

@@ -26,7 +26,7 @@ const Contact = () => {
       message: message.current.value,
     };
 
-    fetch("http://localhost:3001/contact", {
+    fetch("https://serverofchefbooking.onrender.com/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const Contact = () => {
     <>
       <div
         style={{
-          backgroundImage: "url('http://localhost:3001/contact.jpg')",
+          backgroundImage: "url('https://serverofchefbooking.onrender.com/contact.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

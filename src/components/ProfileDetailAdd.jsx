@@ -24,7 +24,7 @@ const ProfileDetailAdd = () => {
   const Birthdate = useRef();
   const Gender = useRef();
   const [previewImg, setPreviewImg] = useState(
-    "http://localhost:3001/defaultpic.jpg"
+    "https://serverofchefbooking.onrender.com/defaultpic.jpg"
   );
   const [selectedFile, setSelectedFile] = useState(null);
   // Handle image upload and preview
@@ -62,7 +62,7 @@ const ProfileDetailAdd = () => {
     if (selectedFile) {
       formData.append("image", selectedFile);
     }
-    fetch("http://localhost:3001/addUserData", {
+    fetch("https://serverofchefbooking.onrender.com/addUserData", {
       method: "POST",
       body: formData,
       credentials: "include",

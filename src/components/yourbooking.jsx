@@ -28,7 +28,7 @@ const Yourbooking = () => {
               <div className={`card shadow-sm p-3 ${styles.bookingCard}`}>
                 <div className="d-flex align-items-center mb-3">
                   <img
-                    src={`http://localhost:3001${booking.chefDetail.profileImage}`}
+                    src={`https://serverofchefbooking.onrender.com${booking.chefDetail.profileImage}`}
                     alt={booking.chefName}
                     className={`rounded-circle me-3 ${styles.chefPic}`}
                     style={{

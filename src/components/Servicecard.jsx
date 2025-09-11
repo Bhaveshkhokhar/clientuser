@@ -8,7 +8,7 @@ const Servicecard = ({ service }) => {
           className="card"
           style={{ maxWidth: "230px", background: "#C4A484",  }}
         >
-          <img src={`http://localhost:3001${service.pic}`} className="card-img-top" alt={service.type} />
+          <img src={`https://serverofchefbooking.onrender.com${service.pic}`} className="card-img-top" alt={service.type} />
           <div className="card-body">
             <h5 className="card-title">{service.type}</h5>
             <p className="card-text">{service.description}</p>

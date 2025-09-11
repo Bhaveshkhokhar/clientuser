@@ -7,7 +7,7 @@ const Aboutcontent = () => {
         <div className="row align-items-center">
           <div className="col-12 col-md-4 mb-3 mb-md-0">
             <img
-              src="http://localhost:3001/about.jpg"
+              src="https://serverofchefbooking.onrender.com/about.jpg"
               className="img-fluid"
               alt="About"
               style={{ borderRadius: "10px", width: "100%", height: "auto" }}

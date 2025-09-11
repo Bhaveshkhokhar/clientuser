@@ -1,6 +1,6 @@
 export const getBookingData = async (signal, handleuserProfile) => {
   try {
-    const response = await fetch("http://localhost:3001/getYourBookings", {
+    const response = await fetch("https://serverofchefbooking.onrender.com/getYourBookings", {
       signal,
       credentials: "include",
     });
@@ -49,7 +49,7 @@ export const mapServerBookingToLocalBooking = (serverBooking) => {
 };
 export const cancelBooking = async (id,date,time,chefid,bookedAt ,handleuserProfile, dispatch,addCancelledBooking) => {
   try {
-    const response = await fetch("http://localhost:3001/cancelBooking", {
+    const response = await fetch("https://serverofchefbooking.onrender.com/cancelBooking", {
       method: "POST",
       body: JSON.stringify({ id,date,time,chefid,bookedAt }),
       headers: {

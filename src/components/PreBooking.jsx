@@ -35,7 +35,7 @@ const PreBooking = () => {
       if (user.status) {
         if (location.state) {
           if (paymentMethod === "COD") {
-            fetch(" http://localhost:3001/confirmBooking", {
+            fetch(" https://serverofchefbooking.onrender.com/confirmBooking", {
               method: "POST",
               credentials: "include",
               headers: { "Content-Type": "application/json" },
@@ -123,7 +123,7 @@ const PreBooking = () => {
         <h2 className={styles["prebooking-title"]}>Confirm Your Booking</h2>
         <div className={styles["prebooking-img-wrapper"]}>
           <img
-            src={`http://localhost:3001${chef.pic}`}
+            src={`https://serverofchefbooking.onrender.com${chef.pic}`}
             alt={chef.name}
             className={styles["prebooking-img"]}
           />

@@ -54,7 +54,7 @@ const Signup = () => {
         return;
       }
 
-      fetch("http://localhost:3001/otpverification", {
+      fetch("https://serverofchefbooking.onrender.com/otpverification", {
         method: "POST",
         body: JSON.stringify({
           Name: Name.current.value,
@@ -124,7 +124,7 @@ const Signup = () => {
         return;
       }
 
-      fetch("http://localhost:3001/signup", {
+      fetch("https://serverofchefbooking.onrender.com/signup", {
         method: "POST",
         body: JSON.stringify({
           Otp: otp.current.value,
@@ -206,7 +206,7 @@ const Signup = () => {
           >
             <div className="w-100 d-flex justify-content-center mt-4 mb-0 ">
               <img
-                src="http://localhost:3001/Chefwalelogo.png"
+                src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
                 alt="ChefWale Logo"
                 style={{ width: "90px", height: "90px", objectFit: "contain" }}
               />

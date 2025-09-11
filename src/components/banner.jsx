@@ -36,7 +36,7 @@ const Banner = () => {
           <img
             width="700px"
             height="700px"
-            src={isMobile ? "http://localhost:3001/banner1.png" : "http://localhost:3001/banner2.png"}
+            src={isMobile ? "https://serverofchefbooking.onrender.com/banner1.png" : "https://serverofchefbooking.onrender.com/banner2.png"}
             alt="Chef"
           />
         </div>

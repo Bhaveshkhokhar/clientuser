@@ -19,7 +19,7 @@ const Chef = () => {
           {/* Chef Image */}
           <div className="col-12 col-lg-4 d-flex justify-content-center mb-3 mb-lg-0">
             <img
-              src={`http://localhost:3001${chef.pic}`}
+              src={`https://serverofchefbooking.onrender.com${chef.pic}`}
               className="img-fluid shadow-sm"
               alt={chef.name}
               style={{ borderRadius: "30px" }}

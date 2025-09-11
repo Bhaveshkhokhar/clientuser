@@ -13,17 +13,17 @@ const Profile = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
   const [previewImg, setPreviewImg] = useState(
-    `http://localhost:3001${user.image}`
+    `https://serverofchefbooking.onrender.com${user.image}`
   );
   useEffect(() => {
-    setPreviewImg(`http://localhost:3001${user.image}`);
+    setPreviewImg(`https://serverofchefbooking.onrender.com${user.image}`);
   }, [user.image]);
 
   const handleUpload = () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append("image", selectedFile);
-      fetch("http://localhost:3001/updateUserProfilePic", {
+      fetch("https://serverofchefbooking.onrender.com/updateUserProfilePic", {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -78,7 +78,7 @@ const Profile = () => {
 
   const handleCancel = () => {
     setShowUploadPopup(false);
-    setPreviewImg(`http://localhost:3001${user.image}`); // Reset preview on cancel
+    setPreviewImg(`https://serverofchefbooking.onrender.com${user.image}`); // Reset preview on cancel
   };
 
   // Handle file input change to preview image
@@ -105,7 +105,7 @@ const Profile = () => {
           >
             <div className="d-flex flex-column align-items-center">
               <img
-                src={`http://localhost:3001${user.image}`}
+                src={`https://serverofchefbooking.onrender.com${user.image}`}
                 alt={user.name}
                 className={`rounded-circle mb-3 ${styles.profileImage}`}
                 style={{ width: "120px", height: "120px", objectFit: "cover" }}

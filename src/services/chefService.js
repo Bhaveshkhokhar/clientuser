@@ -1,6 +1,6 @@
 export const getTheChefs = async (signal) => {
   try {
-    const response = await fetch("http://localhost:3001/get-chefs", signal);
+    const response = await fetch("https://serverofchefbooking.onrender.com/get-chefs", signal);
     const data = await response.json();
     return mapServerChefsToLocalChefs(data);
   } catch (err) {

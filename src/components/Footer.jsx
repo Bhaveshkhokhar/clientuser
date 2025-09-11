@@ -17,7 +17,7 @@ const Footer = () => {
                     <img
                       width="150px"
                       height="150px"
-                      src="http://localhost:3001/Chefwalelogo.png"
+                      src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
                       alt="ChefWale"
                     />
                   </a>

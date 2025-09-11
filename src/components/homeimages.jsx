@@ -36,7 +36,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="http://localhost:3001/PIC2.png"
+            src="https://serverofchefbooking.onrender.com/PIC2.png"
             alt=""
           />
         </Carousel.Item>
@@ -44,7 +44,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="http://localhost:3001/PIC1.jpg"
+            src="https://serverofchefbooking.onrender.com/PIC1.jpg"
             alt=""
           />
         </Carousel.Item>
@@ -52,7 +52,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="http://localhost:3001/PIC3.jpg"
+            src="https://serverofchefbooking.onrender.com/PIC3.jpg"
             alt=""
           />
         </Carousel.Item>

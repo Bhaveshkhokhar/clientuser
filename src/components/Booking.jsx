@@ -35,7 +35,7 @@ const Booking = ({ chef }) => {
       data.getDate() === today.getDate() &&
       data.getMonth() === today.getMonth() &&
       data.getFullYear() === today.getFullYear();
-    fetch("http://localhost:3001/getbookingtime", {
+    fetch("https://serverofchefbooking.onrender.com/getbookingtime", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const Booking = ({ chef }) => {
   const handleBooking = () => {
     if (loginstate) {
       if (user.status) {
-        fetch("http://localhost:3001/handlePreBooking", {
+        fetch("https://serverofchefbooking.onrender.com/handlePreBooking", {
           method: "POST",
           body: JSON.stringify({
             chefid: chef.id,

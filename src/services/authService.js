@@ -1,6 +1,6 @@
 export const checkAuthStatus = async (signal) => {
   try {
-    const response = await fetch("http://localhost:3001/checkauthstatus", {
+    const response = await fetch("https://serverofchefbooking.onrender.com/checkauthstatus", {
       method: "GET",
       credentials: "include",
       signal,

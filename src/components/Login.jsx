@@ -21,7 +21,7 @@ const Login = () => {
       return;
     }
 
-    fetch("http://localhost:3001/login", {
+    fetch("https://serverofchefbooking.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const Login = () => {
           >
             <div className="w-100 d-flex justify-content-center mt-4 mb-0 ">
               <img
-                src="http://localhost:3001/Chefwalelogo.png"
+                src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
                 alt="ChefWale Logo"
                 style={{ width: "90px", height: "90px", objectFit: "contain" }}
               />

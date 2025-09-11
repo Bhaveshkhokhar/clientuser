@@ -25,7 +25,7 @@ const Chefcard = ({ chef }) => {
           style={{maxWidth:"100%",
             maxHeight:"140px"
           }}
-            src={`http://localhost:3001${chef.pic}`}
+            src={`https://serverofchefbooking.onrender.com${chef.pic}`}
             className="card-img-top"
             alt={chef.name}
           />
