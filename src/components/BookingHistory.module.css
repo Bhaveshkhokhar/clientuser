@@ -1,0 +1,28 @@
+.bookingContainer {
+  min-height: 70vh;
+}
+
+.bookingCard {
+  border-radius: 16px;
+  background: white;
+}
+
+.chefPic {
+  border: 2px solid #C4A484;
+}
+
+.Button:hover {
+  transform: scale(1.08); /* Slight zoom */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Pop shadow */
+}
+
+.Button {
+  padding: 12px 24px;
+  background-color: white;
+  color: #4C5664;
+  border: 1px solid #4C5664;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

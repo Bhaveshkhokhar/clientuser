@@ -1,0 +1,19 @@
+  .carouselItem {
+  padding: 4px;
+}
+
+.cardItem {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5Spx;
+  text-align: center;
+  background-color: white;
+  user-select: none;
+  /* remove cursor: grab to improve touchpad responsiveness */
+}
+/* In your CSS Module (e.g., TimeSelector.module.css) */
+.Buttoncolor {
+  background-color: orange;
+  color: white; /* Optional */
+}

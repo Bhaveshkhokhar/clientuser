@@ -1,0 +1,21 @@
+.cantainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-evenly;
+  margin-left: 30px;
+}
+
+@media (max-width: 900px) {
+  .cantainer {
+    gap: 12px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .cantainer {
+    gap: 8px;
+    justify-content: center;
+  }
+}

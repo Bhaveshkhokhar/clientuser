@@ -1,0 +1,48 @@
+.button {
+  transition: transform 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.04);
+}
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex: 1 1 0;
+}
+
+/* Responsive card styles */
+.card {
+  width: 200px;
+  height: 350px;
+  background: #C4A484;
+  margin: 20px 15px;
+}
+
+@media (max-width: 900px) {
+  .card {
+    width: 170px;
+    height: 320px;
+    margin: 12px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 8px auto;
+  }
+  .card-img-top {
+    max-height: 120px;
+  }
+}

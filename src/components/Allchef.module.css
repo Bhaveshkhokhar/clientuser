@@ -1,0 +1,11 @@
+.chefs{
+  max-width: 1050px;
+  margin: 40px;
+}
+.list-group-item:focus,
+.list-group-item:active {
+  background-color: #C4A484 !important;
+  color: white !important;
+  border-color: #C4A484 !important;
+  box-shadow: none !important;
+}
