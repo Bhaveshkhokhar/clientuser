@@ -30,7 +30,7 @@ const ProfileDetailUpdate = () => {
       Name.current.focus();
       return;
     }
-    fetch("http://localhost:3001/updateUserData", {
+    fetch("https://serverofchefbooking.onrender.com/updateUserData", {
       method: "POST",
       body: JSON.stringify({
         Name: Name.current.value,

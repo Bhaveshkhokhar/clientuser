@@ -1,9 +1,12 @@
 export const getBookingData = async (signal, handleuserProfile) => {
   try {
-    const response = await fetch("http://localhost:3001/getYourBookings", {
-      signal,
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://serverofchefbooking.onrender.com/getYourBookings",
+      {
+        signal,
+        credentials: "include",
+      },
+    );
     const data = await response.json();
     if (!response.ok) {
       if (response.status === 401) {
@@ -58,14 +61,17 @@ export const cancelBooking = async (
   addCancelledBooking,
 ) => {
   try {
-    const response = await fetch("http://localhost:3001/cancelBooking", {
-      method: "POST",
-      body: JSON.stringify({ id, date, time, chefid, bookedAt }),
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://serverofchefbooking.onrender.com/cancelBooking",
+      {
+        method: "POST",
+        body: JSON.stringify({ id, date, time, chefid, bookedAt }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
       },
-      credentials: "include",
-    });
+    );
     const data = await response.json();
     if (!response.ok) {
       if (response.status === 401) {

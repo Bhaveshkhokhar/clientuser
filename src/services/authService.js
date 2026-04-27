@@ -1,10 +1,13 @@
 export const checkAuthStatus = async (signal) => {
   try {
-    const response = await fetch("http://localhost:3001/checkauthstatus", {
-      method: "GET",
-      credentials: "include",
-      signal,
-    });
+    const response = await fetch(
+      "https://serverofchefbooking.onrender.com/checkauthstatus",
+      {
+        method: "GET",
+        credentials: "include",
+        signal,
+      },
+    );
     if (!response.ok) {
       if (response.status === 401) {
         return { isLoggedIn: false };

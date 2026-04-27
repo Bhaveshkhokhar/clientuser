@@ -12,9 +12,7 @@ const Profile = () => {
   const [showUploadPopup, setShowUploadPopup] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
-  const [previewImg, setPreviewImg] = useState(
-    `${user.image}`,
-  );
+  const [previewImg, setPreviewImg] = useState(`${user.image}`);
   useEffect(() => {
     setPreviewImg(`${user.image}`);
   }, [user.image]);
@@ -23,7 +21,7 @@ const Profile = () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append("image", selectedFile);
-      fetch("http://localhost:3001/updateUserProfilePicV2", {
+      fetch("https://serverofchefbooking.onrender.com/updateUserProfilePicV2", {
         method: "POST",
         body: formData,
         credentials: "include",

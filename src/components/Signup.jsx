@@ -54,7 +54,7 @@ const Signup = () => {
         return;
       }
 
-      fetch("http://localhost:3001/otpverification", {
+      fetch("https://serverofchefbooking.onrender.com/otpverification", {
         method: "POST",
         body: JSON.stringify({
           Name: Name.current.value,
@@ -124,7 +124,7 @@ const Signup = () => {
         return;
       }
 
-      fetch("http://localhost:3001/signup", {
+      fetch("https://serverofchefbooking.onrender.com/signup", {
         method: "POST",
         body: JSON.stringify({
           Otp: otp.current.value,

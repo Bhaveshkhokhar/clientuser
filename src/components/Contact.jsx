@@ -26,7 +26,7 @@ const Contact = () => {
       message: message.current.value,
     };
 
-    fetch("http://localhost:3001/contact", {
+    fetch("https://serverofchefbooking.onrender.com/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,8 @@ const Contact = () => {
     <>
       <div
         style={{
-          backgroundImage: "url('https://chefwale.s3.us-west-2.amazonaws.com/public/contact.jpg')",
+          backgroundImage:
+            "url('https://chefwale.s3.us-west-2.amazonaws.com/public/contact.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

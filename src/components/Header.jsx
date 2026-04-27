@@ -12,7 +12,7 @@ const Header = () => {
   const handlesignout = (e) => {
     // e.preventDefault();
 
-    fetch("http://localhost:3001/logout", {
+    fetch("https://serverofchefbooking.onrender.com/logout", {
       method: "POST",
       credentials: "include",
     })
