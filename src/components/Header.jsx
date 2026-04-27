@@ -12,7 +12,7 @@ const Header = () => {
   const handlesignout = (e) => {
     // e.preventDefault();
 
-    fetch("https://serverofchefbooking.onrender.com/logout", {
+    fetch("http://localhost:3001/logout", {
       method: "POST",
       credentials: "include",
     })
@@ -52,7 +52,7 @@ const Header = () => {
             <img
               width="50px"
               height="50px"
-              src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
+              src="https://chefwale.s3.us-west-2.amazonaws.com/public/Chefwalelogo.png"
               alt="ChefWale"
             />
           </Link>
@@ -67,28 +67,28 @@ const Header = () => {
 
           <div className={`collapse navbar-collapse${menuOpen ? " show" : ""}`}>
             <center>
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link to="/" className="nav-link px-3">
-                 <b> Home</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/chefs/All Chefs" className="nav-link px-3">
-                 <b> All Chefs</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/contact" className="nav-link px-3">
-                 <b> Contact</b>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/about-us" className="nav-link px-3">
-                 <b>About Us</b>
-                </Link>
-              </li>
-            </ul>
+              <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link to="/" className="nav-link px-3">
+                    <b> Home</b>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/chefs/All Chefs" className="nav-link px-3">
+                    <b> All Chefs</b>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/contact" className="nav-link px-3">
+                    <b> Contact</b>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/about-us" className="nav-link px-3">
+                    <b>About Us</b>
+                  </Link>
+                </li>
+              </ul>
             </center>
             {/* Hamburger menu (mobile): show below links */}
             {/* Hamburger menu (mobile): show below links, left-aligned */}
@@ -119,7 +119,7 @@ const Header = () => {
                     aria-expanded="false"
                   >
                     <img
-                      src={`https://serverofchefbooking.onrender.com${user.image}`}
+                      src={`${user.image}`}
                       alt="mdo"
                       width="32"
                       height="32"
@@ -145,7 +145,9 @@ const Header = () => {
                     <li>
                       <button
                         className="dropdown-item"
-                        onClick={(e) => {handlesignout(e);}}
+                        onClick={(e) => {
+                          handlesignout(e);
+                        }}
                       >
                         Sign out
                       </button>
@@ -182,7 +184,7 @@ const Header = () => {
                     aria-expanded="false"
                   >
                     <img
-                      src={`https://serverofchefbooking.onrender.com${user.image}`}
+                      src={`${user.image}`}
                       alt="mdo"
                       width="32"
                       height="32"

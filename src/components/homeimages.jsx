@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 function HomeImages() {
   return (
     <div
-      style={{ maxWidth:"1000px", position: "relative", borderRadius: "16px", overflow: "hidden", margin:"40px" }}
+      style={{
+        maxWidth: "1000px",
+        position: "relative",
+        borderRadius: "16px",
+        overflow: "hidden",
+        margin: "40px",
+      }}
       className={styles["imagecontainer"]}
     >
       {/* Fixed Caption */}
@@ -36,7 +42,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="https://serverofchefbooking.onrender.com/PIC2.png"
+            src="https://chefwale.s3.us-west-2.amazonaws.com/public/PIC2.png"
             alt=""
           />
         </Carousel.Item>
@@ -44,7 +50,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="https://serverofchefbooking.onrender.com/PIC1.jpg"
+            src="https://chefwale.s3.us-west-2.amazonaws.com/public/PIC1.jpg"
             alt=""
           />
         </Carousel.Item>
@@ -52,7 +58,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="https://serverofchefbooking.onrender.com/PIC3.jpg"
+            src="https://chefwale.s3.us-west-2.amazonaws.com/public/PIC3.jpg"
             alt=""
           />
         </Carousel.Item>

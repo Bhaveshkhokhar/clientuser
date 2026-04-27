@@ -1,6 +1,6 @@
 export const getUserData = async (signal, handleuserProfile) => {
   try {
-    const response = await fetch("https://serverofchefbooking.onrender.com/userDetail", {
+    const response = await fetch("http://localhost:3001/userDetail", {
       signal,
       credentials: "include",
     });
@@ -33,14 +33,14 @@ export const getUserData = async (signal, handleuserProfile) => {
 };
 const mapServerUserToLocalUser = (serverUser) => {
   return {
-    status:serverUser.Status,
-    id:serverUser.id,
-    name:serverUser.Name,
-    number:serverUser.Number,
-    email:serverUser.Email,
-    image:serverUser.Image,
-    birthdate:serverUser.Birthdate.slice(0, 10),
-    gender:serverUser.Gender,
-    address:serverUser.Address,
+    status: serverUser.Status,
+    id: serverUser.id,
+    name: serverUser.Name,
+    number: serverUser.Number,
+    email: serverUser.Email,
+    image: serverUser.Image,
+    birthdate: serverUser.Birthdate.slice(0, 10),
+    gender: serverUser.Gender,
+    address: serverUser.Address,
   };
 };

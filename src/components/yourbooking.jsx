@@ -2,19 +2,19 @@ import { useContext } from "react";
 import styles from "./yourbooking.module.css";
 import { BookingStore } from "../store/BookingStore";
 import { authContext } from "../store/authStore";
-import {Navigate ,useLocation} from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 // Dummy booking data (replace with real data or fetch from API/context)
 
 const Yourbooking = () => {
-  const{loginstate}=useContext(authContext);
-  const location=useLocation();
+  const { loginstate } = useContext(authContext);
+  const location = useLocation();
   const { bookingdata, handleCancelBooking } = useContext(BookingStore);
   const sortedBookings = [...bookingdata].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
+    (a, b) => new Date(b.date) - new Date(a.date),
   );
-  if(!loginstate){
-    return <Navigate to="/login" replace state={{ from: location }} />
+  if (!loginstate) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
   }
   return (
     <div className={`container py-4 ${styles.bookingContainer}`}>
@@ -28,7 +28,7 @@ const Yourbooking = () => {
               <div className={`card shadow-sm p-3 ${styles.bookingCard}`}>
                 <div className="d-flex align-items-center mb-3">
                   <img
-                    src={`https://serverofchefbooking.onrender.com${booking.chefDetail.profileImage}`}
+                    src={`${booking.chefDetail.profileImage}`}
                     alt={booking.chefName}
                     className={`rounded-circle me-3 ${styles.chefPic}`}
                     style={{
@@ -44,7 +44,8 @@ const Yourbooking = () => {
                     <strong>Booked at :</strong> {booking.bookedAt}
                   </p>
                   <p className="mb-1">
-                    <strong>Contact Detail of Chef :</strong> {booking.chefDetail.mobile}
+                    <strong>Contact Detail of Chef :</strong>{" "}
+                    {booking.chefDetail.mobile}
                   </p>
                   <p className="mb-1">
                     <strong>Date Of Booking :</strong> {booking.date}
@@ -80,7 +81,13 @@ const Yourbooking = () => {
                     className={styles.Button}
                     type="button"
                     onClick={() => {
-                      handleCancelBooking(booking.booking_id,booking.date,booking.time,booking.chefDetail._id,booking.bookedAt);
+                      handleCancelBooking(
+                        booking.booking_id,
+                        booking.date,
+                        booking.time,
+                        booking.chefDetail._id,
+                        booking.bookedAt,
+                      );
                     }}
                   >
                     Cancel booking

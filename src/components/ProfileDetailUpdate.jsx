@@ -1,4 +1,4 @@
-import { useRef,useContext } from "react";
+import { useRef, useContext } from "react";
 import styles from "./ProfileDetailUpdate.module.css";
 import {
   FaUser,
@@ -7,15 +7,15 @@ import {
   FaTransgender,
   FaBirthdayCake,
 } from "react-icons/fa";
-import { useNavigate, Navigate,useLocation } from "react-router-dom";
+import { useNavigate, Navigate, useLocation } from "react-router-dom";
 import { authContext } from "../store/authStore";
 import { UserStore } from "../store/UserdataStore";
 
 const ProfileDetailUpdate = () => {
-  const { loginstate,handleuserProfile } = useContext(authContext);
+  const { loginstate, handleuserProfile } = useContext(authContext);
   const { user, handleUpdate } = useContext(UserStore);
   const navigate = useNavigate();
-  const location=useLocation();
+  const location = useLocation();
   const Name = useRef();
   const Email = useRef();
   const Address = useRef();
@@ -30,7 +30,7 @@ const ProfileDetailUpdate = () => {
       Name.current.focus();
       return;
     }
-    fetch("https://serverofchefbooking.onrender.com/updateUserData", {
+    fetch("http://localhost:3001/updateUserData", {
       method: "POST",
       body: JSON.stringify({
         Name: Name.current.value,
@@ -81,13 +81,13 @@ const ProfileDetailUpdate = () => {
         if (!data) return;
         if (data.status === "success") {
           handleUpdate({
-            name:Name.current.value,
-            email:Email.current.value,
-            birthdate:Birthdate.current.value,
-            gender:Gender.current.value,
-            address:Address.current.value,
-            number:user.number,
-            image:user.image,
+            name: Name.current.value,
+            email: Email.current.value,
+            birthdate: Birthdate.current.value,
+            gender: Gender.current.value,
+            address: Address.current.value,
+            number: user.number,
+            image: user.image,
           });
           alert("profile updated");
           navigate("/profile");
@@ -98,8 +98,8 @@ const ProfileDetailUpdate = () => {
         alert("An error occurred during uploading data, Please try again.");
       });
   };
-  if(!loginstate){
-    return <Navigate to="/login" replace  state={{ from: location }}/>
+  if (!loginstate) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
   }
   return (
     <div className="container py-5 ">

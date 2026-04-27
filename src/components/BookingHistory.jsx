@@ -2,16 +2,16 @@ import { useContext } from "react";
 import styles from "./BookingHistory.module.css";
 import { BookingHistoryStore } from "../store/BookingHistoryStore";
 import { authContext } from "../store/authStore";
-import {Navigate,useLocation} from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 const BookingHistory = () => {
   const { bookinghistory } = useContext(BookingHistoryStore);
-  const{loginstate}=useContext(authContext);
+  const { loginstate } = useContext(authContext);
   const sortedBookings = [...bookinghistory].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
+    (a, b) => new Date(b.date) - new Date(a.date),
   );
-  const location=useLocation();
-   if(!loginstate){
-    return <Navigate to="/login" replace state={{ from: location }} />
+  const location = useLocation();
+  if (!loginstate) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
   }
   return (
     <div className={`container py-4 ${styles.bookingContainer}`}>
@@ -25,7 +25,7 @@ const BookingHistory = () => {
               <div className={`card shadow-sm p-3 ${styles.bookingCard}`}>
                 <div className="d-flex align-items-center mb-3">
                   <img
-                    src={`https://serverofchefbooking.onrender.com${booking.chefDetail.profileImage}`}
+                    src={`${booking.chefDetail.profileImage}`}
                     alt={booking.chefName}
                     className={`rounded-circle me-3 ${styles.chefPic}`}
                     style={{

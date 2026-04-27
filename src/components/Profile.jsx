@@ -1,29 +1,29 @@
 import styles from "./Profile.module.css";
-import { useNavigate ,Navigate,useLocation} from "react-router-dom";
+import { useNavigate, Navigate, useLocation } from "react-router-dom";
 import { useState, useRef, useContext, useEffect } from "react";
 import { UserStore } from "../store/UserdataStore";
 import { authContext } from "../store/authStore";
 
 const Profile = () => {
   const { user, handleUpdate } = useContext(UserStore);
-  const {loginstate,handleuserProfile}=useContext(authContext);
-   const location = useLocation();
+  const { loginstate, handleuserProfile } = useContext(authContext);
+  const location = useLocation();
   const navigate = useNavigate();
   const [showUploadPopup, setShowUploadPopup] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
   const [previewImg, setPreviewImg] = useState(
-    `https://serverofchefbooking.onrender.com${user.image}`
+    `${user.image}`,
   );
   useEffect(() => {
-    setPreviewImg(`https://serverofchefbooking.onrender.com${user.image}`);
+    setPreviewImg(`${user.image}`);
   }, [user.image]);
 
   const handleUpload = () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append("image", selectedFile);
-      fetch("https://serverofchefbooking.onrender.com/updateUserProfilePic", {
+      fetch("http://localhost:3001/updateUserProfilePicV2", {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -54,8 +54,8 @@ const Profile = () => {
           if (data.status === "success") {
             handleUpdate({
               ...user,
-              image:data.image,
-            })
+              image: data.image,
+            });
             alert("profile image updated");
             setShowUploadPopup(false);
           }
@@ -78,7 +78,7 @@ const Profile = () => {
 
   const handleCancel = () => {
     setShowUploadPopup(false);
-    setPreviewImg(`https://serverofchefbooking.onrender.com${user.image}`); // Reset preview on cancel
+    setPreviewImg(`${user.image}`); // Reset preview on cancel
   };
 
   // Handle file input change to preview image
@@ -93,8 +93,8 @@ const Profile = () => {
       reader.readAsDataURL(file);
     }
   };
-  if(!loginstate){
-    return <Navigate to="/login" replace   state={{ from: location }}/>
+  if (!loginstate) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
   }
   return (
     <div className={`container py-5 ${styles.profileContainer}`}>
@@ -105,7 +105,7 @@ const Profile = () => {
           >
             <div className="d-flex flex-column align-items-center">
               <img
-                src={`https://serverofchefbooking.onrender.com${user.image}`}
+                src={`${user.image}`}
                 alt={user.name}
                 className={`rounded-circle mb-3 ${styles.profileImage}`}
                 style={{ width: "120px", height: "120px", objectFit: "cover" }}
@@ -148,7 +148,8 @@ const Profile = () => {
                     <strong>Address:</strong> {user.address}
                   </p>
                   <p>
-                    <strong>Status:</strong> {user.status?"Active":"Blocked"}
+                    <strong>Status:</strong>{" "}
+                    {user.status ? "Active" : "Blocked"}
                   </p>
                 </div>
                 <div

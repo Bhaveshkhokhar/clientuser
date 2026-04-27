@@ -1,6 +1,6 @@
 export const getBookingData = async (signal, handleuserProfile) => {
   try {
-    const response = await fetch("https://serverofchefbooking.onrender.com/getYourBookings", {
+    const response = await fetch("http://localhost:3001/getYourBookings", {
       signal,
       credentials: "include",
     });
@@ -22,7 +22,7 @@ export const getBookingData = async (signal, handleuserProfile) => {
       }
       throw new Error("Failed to fetch userBookingdata");
     }
-    
+
     return mapServerBookingToLocalBooking(data.userBookingData);
   } catch (err) {
     if (err.name === "AbortError") {
@@ -47,11 +47,20 @@ export const mapServerBookingToLocalBooking = (serverBooking) => {
     };
   });
 };
-export const cancelBooking = async (id,date,time,chefid,bookedAt ,handleuserProfile, dispatch,addCancelledBooking) => {
+export const cancelBooking = async (
+  id,
+  date,
+  time,
+  chefid,
+  bookedAt,
+  handleuserProfile,
+  dispatch,
+  addCancelledBooking,
+) => {
   try {
-    const response = await fetch("https://serverofchefbooking.onrender.com/cancelBooking", {
+    const response = await fetch("http://localhost:3001/cancelBooking", {
       method: "POST",
-      body: JSON.stringify({ id,date,time,chefid,bookedAt }),
+      body: JSON.stringify({ id, date, time, chefid, bookedAt }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -75,7 +84,7 @@ export const cancelBooking = async (id,date,time,chefid,bookedAt ,handleuserProf
         dispatch(action);
         return;
       }
-      if(response.status===400){
+      if (response.status === 400) {
         alert(data.message);
         const action = {
           type: "delete",
@@ -84,20 +93,21 @@ export const cancelBooking = async (id,date,time,chefid,bookedAt ,handleuserProf
           },
         };
         dispatch(action);
-        const localdata=mapServerBookingHistoryToLocalBookingHistory(data.bookinghistdata);
+        const localdata = mapServerBookingHistoryToLocalBookingHistory(
+          data.bookinghistdata,
+        );
         addCancelledBooking({
-        bookinghistory_id: localdata.bookinghistory_id,
-        chefDetail: localdata.chefDetail,
-        date: localdata.date,
-        time: localdata.time,
-        price: localdata.price,
-        address: localdata.address,
-        bookedAt: localdata.bookedAt,
-        modeOfPayment: localdata.modeOfPayment,
-        status: localdata.status,
+          bookinghistory_id: localdata.bookinghistory_id,
+          chefDetail: localdata.chefDetail,
+          date: localdata.date,
+          time: localdata.time,
+          price: localdata.price,
+          address: localdata.address,
+          bookedAt: localdata.bookedAt,
+          modeOfPayment: localdata.modeOfPayment,
+          status: localdata.status,
         });
         return;
-
       }
       if (response.status === 500) {
         alert(data.message);
@@ -107,7 +117,7 @@ export const cancelBooking = async (id,date,time,chefid,bookedAt ,handleuserProf
     }
     return mapServerBookingHistoryToLocalBookingHistory(
       data.cancelledBooking,
-      data.id
+      data.id,
     );
   } catch (err) {
     console.error("Fetch error:", err);
@@ -115,7 +125,7 @@ export const cancelBooking = async (id,date,time,chefid,bookedAt ,handleuserProf
 };
 const mapServerBookingHistoryToLocalBookingHistory = (
   serverBookingHistory,
-  id
+  id,
 ) => {
   return {
     booking_id: id,

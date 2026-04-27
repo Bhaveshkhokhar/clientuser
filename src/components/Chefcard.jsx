@@ -22,10 +22,8 @@ const Chefcard = ({ chef }) => {
           }}
         >
           <img
-          style={{maxWidth:"100%",
-            maxHeight:"140px"
-          }}
-            src={`https://serverofchefbooking.onrender.com${chef.pic}`}
+            style={{ maxWidth: "100%", maxHeight: "140px" }}
+            src={`${chef.pic}`}
             className="card-img-top"
             alt={chef.name}
           />
@@ -41,7 +39,9 @@ const Chefcard = ({ chef }) => {
                 {"☆".repeat(emptyStars)}
                 <span className="text-muted small"> {chef.rating}</span>
               </p>
-              <li className={`${chef.available ? styles["green"] : styles["red"]}`}>
+              <li
+                className={`${chef.available ? styles["green"] : styles["red"]}`}
+              >
                 {chef.available ? "available" : "not available"}
               </li>
             </div>

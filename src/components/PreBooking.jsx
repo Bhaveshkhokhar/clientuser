@@ -35,7 +35,7 @@ const PreBooking = () => {
       if (user.status) {
         if (location.state) {
           if (paymentMethod === "COD") {
-            fetch(" https://serverofchefbooking.onrender.com/confirmBooking", {
+            fetch(" http://localhost:3001/confirmBooking", {
               method: "POST",
               credentials: "include",
               headers: { "Content-Type": "application/json" },
@@ -55,10 +55,10 @@ const PreBooking = () => {
                     alert(data.message);
                     handleuserProfile(false);
                     return;
-                  } else if(res.status==403){
+                  } else if (res.status == 403) {
                     alert(data.message);
                     return;
-                  }else if (res.status === 404) {
+                  } else if (res.status === 404) {
                     alert(data.message);
                     if (
                       data.message === "user is not authenticated please login"
@@ -100,12 +100,13 @@ const PreBooking = () => {
           }
         } else {
           alert(
-            "sorry for in convient but your booking data loss please try booking again"
+            "sorry for in convient but your booking data loss please try booking again",
           );
         }
-      }
-      else{
-         alert("Your Account is Blocked from Host side for further info please contact us");
+      } else {
+        alert(
+          "Your Account is Blocked from Host side for further info please contact us",
+        );
       }
     } else {
       alert("yout token is expire please login again");
@@ -123,7 +124,7 @@ const PreBooking = () => {
         <h2 className={styles["prebooking-title"]}>Confirm Your Booking</h2>
         <div className={styles["prebooking-img-wrapper"]}>
           <img
-            src={`https://serverofchefbooking.onrender.com${chef.pic}`}
+            src={`${chef.pic}`}
             alt={chef.name}
             className={styles["prebooking-img"]}
           />

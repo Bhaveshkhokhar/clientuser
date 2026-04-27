@@ -17,7 +17,7 @@ const Footer = () => {
                     <img
                       width="150px"
                       height="150px"
-                      src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
+                      src="https://chefwale.s3.us-west-2.amazonaws.com/public/Chefwalelogo.png"
                       alt="ChefWale"
                     />
                   </a>
@@ -73,7 +73,10 @@ const Footer = () => {
                       </a>
                     </li>
                     <li className="nav-item mb-2">
-                      <a href="mailto:bhaveshkhokhar54@gmail.com" style={{ color: "black", textDecoration: "none" }} >
+                      <a
+                        href="mailto:bhaveshkhokhar54@gmail.com"
+                        style={{ color: "black", textDecoration: "none" }}
+                      >
                         bhaveshkhokhar54@gmail.com
                       </a>
                     </li>

@@ -8,11 +8,11 @@ const Contact = () => {
   const city = useRef();
   const message = useRef();
 
-  const handlesubmit = (e)=>{
+  const handlesubmit = (e) => {
     e.preventDefault();
     // Validate form fields
     var nameRegex = /^[a-zA-Z\s]+$/;
-    const isname= nameRegex.test(name.current.value);
+    const isname = nameRegex.test(name.current.value);
     if (!isname) {
       alert("Please enter a valid name (letters and spaces only).");
       name.current.focus();
@@ -26,17 +26,17 @@ const Contact = () => {
       message: message.current.value,
     };
 
-    fetch("https://serverofchefbooking.onrender.com/contact", {
+    fetch("http://localhost:3001/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(contactData),
     })
-      .then(async(response) => {
-        const data= await response.json()
+      .then(async (response) => {
+        const data = await response.json();
         if (!response.ok) {
-          if(response.status === 422) {
+          if (response.status === 422) {
             // Handle validation error
             alert(`Validation Error: ${data.message}`);
             if (data.field === "name") {
@@ -47,12 +47,12 @@ const Contact = () => {
               email.current.focus();
             } else if (data.field === "city") {
               city.current.focus();
-            } 
+            }
             return;
           }
-          throw new Error( "Something went wrong");
+          throw new Error("Something went wrong");
         }
-      
+
         return data;
       })
       .then((data) => {
@@ -69,13 +69,13 @@ const Contact = () => {
         console.error("Error:", error);
         alert("There was an error submitting your request. Please try again.");
       });
-  }
-  
+  };
+
   return (
     <>
       <div
         style={{
-          backgroundImage: "url('https://serverofchefbooking.onrender.com/contact.jpg')",
+          backgroundImage: "url('https://chefwale.s3.us-west-2.amazonaws.com/public/contact.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -108,7 +108,7 @@ const Contact = () => {
                 </div>{" "}
                 <div className="modal-body p-5 pt-0">
                   {" "}
-                  <form  onSubmit={(e)=>handlesubmit(e)}>
+                  <form onSubmit={(e) => handlesubmit(e)}>
                     {" "}
                     <div className="form-floating mb-3">
                       {" "}

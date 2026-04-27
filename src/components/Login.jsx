@@ -21,7 +21,7 @@ const Login = () => {
       return;
     }
 
-    fetch("https://serverofchefbooking.onrender.com/login", {
+    fetch("http://localhost:3001/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const Login = () => {
         alert("An error occurred during login. Please try again.");
       });
   };
-   useEffect(() => {
+  useEffect(() => {
     if (loginstate) {
       // Get the intended path, fallback to home
       const from = location.state?.from?.pathname || "/";
@@ -100,7 +100,7 @@ const Login = () => {
           >
             <div className="w-100 d-flex justify-content-center mt-4 mb-0 ">
               <img
-                src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
+                src="https://chefwale.s3.us-west-2.amazonaws.com/public/Chefwalelogo.png"
                 alt="ChefWale Logo"
                 style={{ width: "90px", height: "90px", objectFit: "contain" }}
               />

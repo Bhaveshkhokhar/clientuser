@@ -1,9 +1,12 @@
 export const getBookingHistoryData = async (signal, handleuserProfile) => {
   try {
-    const response = await fetch("https://serverofchefbooking.onrender.com/getYourBookingsHistory", {
-      signal,
-      credentials: "include",
-    });
+    const response = await fetch(
+      "http://localhost:3001/getYourBookingsHistory",
+      {
+        signal,
+        credentials: "include",
+      },
+    );
     const data = await response.json();
     if (!response.ok) {
       if (response.status === 401) {
@@ -22,7 +25,9 @@ export const getBookingHistoryData = async (signal, handleuserProfile) => {
       }
       throw new Error("Failed to fetch userBookingdata");
     }
-    return mapServerBookingHistoryToLocalBookingHistory(data.userBookingHistoryData);
+    return mapServerBookingHistoryToLocalBookingHistory(
+      data.userBookingHistoryData,
+    );
   } catch (err) {
     if (err.name === "AbortError") {
       console.log("Fetch aborted");
@@ -42,7 +47,7 @@ const mapServerBookingHistoryToLocalBookingHistory = (serverBookingHistory) => {
       address: bookingHistory.Address,
       bookedAt: bookingHistory.bookedAt.slice(0, 10),
       modeOfPayment: bookingHistory.modeOfPayment,
-      status:bookingHistory.status,
+      status: bookingHistory.status,
     };
   });
 };

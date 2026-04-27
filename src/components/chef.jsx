@@ -8,8 +8,8 @@ const Chef = () => {
   const { chefs } = useContext(ChefsStore);
   const chef = chefs.find((chef) => chef.id === chefid);
 
-  if(chef===undefined){
-    return <></>
+  if (chef === undefined) {
+    return <></>;
   }
 
   return (
@@ -19,7 +19,7 @@ const Chef = () => {
           {/* Chef Image */}
           <div className="col-12 col-lg-4 d-flex justify-content-center mb-3 mb-lg-0">
             <img
-              src={`https://serverofchefbooking.onrender.com${chef.pic}`}
+              src={`${chef.pic}`}
               className="img-fluid shadow-sm"
               alt={chef.name}
               style={{ borderRadius: "30px" }}
@@ -32,12 +32,13 @@ const Chef = () => {
               textAlign: "left",
               borderRadius: "30px",
               background: "#fff",
-              minHeight: "220px",   
+              minHeight: "220px",
             }}
           >
             <h1 style={{ fontSize: "2rem" }}>{chef.name}</h1>
             <h4 className="mb-2" style={{ fontSize: "1.2rem" }}>
-              Experience: <span className="fw-normal">{chef.experience}</span> years
+              Experience: <span className="fw-normal">{chef.experience}</span>{" "}
+              years
             </h4>
             <div className="mb-1 text-body-secondary">
               <strong>Speciality:</strong> {chef.speciality}
@@ -51,10 +52,10 @@ const Chef = () => {
             <div className="mb-1 text-body-secondary">
               <strong>Bio:</strong> {chef.bio}
             </div>
-             <div className="mb-1 text-body-secondary">
+            <div className="mb-1 text-body-secondary">
               <strong>certifications:</strong> {chef.certifications}
             </div>
-             <div className="mb-1 text-body-secondary">
+            <div className="mb-1 text-body-secondary">
               <strong>Price:</strong> ₹{chef.price}
             </div>
             <div className="mb-1 text-body-secondary">
@@ -65,10 +66,10 @@ const Chef = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="row mt-4">
           <div className="col-12">
-            <Booking  chef={chef}/>
+            <Booking chef={chef} />
           </div>
         </div>
       </div>

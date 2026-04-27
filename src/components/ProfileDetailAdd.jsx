@@ -24,7 +24,7 @@ const ProfileDetailAdd = () => {
   const Birthdate = useRef();
   const Gender = useRef();
   const [previewImg, setPreviewImg] = useState(
-    "https://serverofchefbooking.onrender.com/defaultpic.jpg"
+    "https://chefwale.s3.us-west-2.amazonaws.com/public/defaultpic.jpg",
   );
   const [selectedFile, setSelectedFile] = useState(null);
   // Handle image upload and preview
@@ -62,7 +62,7 @@ const ProfileDetailAdd = () => {
     if (selectedFile) {
       formData.append("image", selectedFile);
     }
-    fetch("https://serverofchefbooking.onrender.com/addUserData", {
+    fetch("http://localhost:3001/addUserData", {
       method: "POST",
       body: formData,
       credentials: "include",
@@ -110,7 +110,7 @@ const ProfileDetailAdd = () => {
             gender: Gender.current.value,
             address: Address.current.value,
             number: user.number,
-            image:data.image,
+            image: data.image,
           });
           alert("profile added");
           navigate("/");

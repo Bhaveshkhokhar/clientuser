@@ -7,7 +7,7 @@ const Signup = () => {
   const { handleuserProfile } = useContext(authContext);
 
   const navigate = useNavigate();
-  const rememberMe=useRef();
+  const rememberMe = useRef();
   const Number = useRef();
   const Password = useRef();
   const ConfirmPassword = useRef();
@@ -15,7 +15,7 @@ const Signup = () => {
   const otp = useRef();
 
   const [otpflag, setOtp] = useState(
-    false
+    false,
     //     () => {
     //   const stored = localStorage.getItem("otpflag");
     //   return stored === "true"; // convert string to boolean
@@ -54,7 +54,7 @@ const Signup = () => {
         return;
       }
 
-      fetch("https://serverofchefbooking.onrender.com/otpverification", {
+      fetch("http://localhost:3001/otpverification", {
         method: "POST",
         body: JSON.stringify({
           Name: Name.current.value,
@@ -93,7 +93,7 @@ const Signup = () => {
 
             if (res.status === 500) {
               alert(
-                "Internal server error during signup please try again later."
+                "Internal server error during signup please try again later.",
               );
               return;
             }
@@ -124,11 +124,11 @@ const Signup = () => {
         return;
       }
 
-      fetch("https://serverofchefbooking.onrender.com/signup", {
+      fetch("http://localhost:3001/signup", {
         method: "POST",
         body: JSON.stringify({
           Otp: otp.current.value,
-          rememberMe:rememberMe.current.checked,
+          rememberMe: rememberMe.current.checked,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -157,7 +157,7 @@ const Signup = () => {
 
             if (res.status === 500) {
               alert(
-                "Internal server error during signup please try again later."
+                "Internal server error during signup please try again later.",
               );
               return;
             }
@@ -206,7 +206,7 @@ const Signup = () => {
           >
             <div className="w-100 d-flex justify-content-center mt-4 mb-0 ">
               <img
-                src="https://serverofchefbooking.onrender.com/Chefwalelogo.png"
+                src="https://chefwale.s3.us-west-2.amazonaws.com/public/Chefwalelogo.png"
                 alt="ChefWale Logo"
                 style={{ width: "90px", height: "90px", objectFit: "contain" }}
               />

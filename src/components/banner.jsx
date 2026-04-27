@@ -5,7 +5,7 @@ import { ChefsStore } from "../store/ChefdataStore";
 import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
-  const{chefs}=useContext(ChefsStore);
+  const { chefs } = useContext(ChefsStore);
   const { loginstate } = useContext(authContext);
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
@@ -22,7 +22,9 @@ const Banner = () => {
         <div className={styles.bannerContent}>
           <h2> Booking Now</h2>
           <br />
-          <h2 style={{ margin: "0px 0px 10px 0px" }}>With {chefs.length}+ Trusted Chef</h2>
+          <h2 style={{ margin: "0px 0px 10px 0px" }}>
+            With {chefs.length}+ Trusted Chef
+          </h2>
           <button
             className={styles.bannerButton}
             onClick={() => {
@@ -36,7 +38,11 @@ const Banner = () => {
           <img
             width="700px"
             height="700px"
-            src={isMobile ? "https://serverofchefbooking.onrender.com/banner1.png" : "https://serverofchefbooking.onrender.com/banner2.png"}
+            src={
+              isMobile
+                ? "https://chefwale.s3.us-west-2.amazonaws.com/public/banner1.png"
+                : "https://chefwale.s3.us-west-2.amazonaws.com/public/banner2.png"
+            }
             alt="Chef"
           />
         </div>
