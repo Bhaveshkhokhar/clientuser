@@ -152,11 +152,16 @@ const BookingProvider = ({ children }) => {
                         if (data.status === "success") {
                           alert("your booking is confirmed");
                           handleUpdateBooking(data.confirmbooking_id);
+                          navigate("/yourbooking")
                         }
                       })
                       .catch(() => {
                         alert("Verification failed");
                       });
+                  },
+
+                  modal: {
+                    ondismiss: () => navigate("/yourbooking"),
                   },
 
                   prefill: {

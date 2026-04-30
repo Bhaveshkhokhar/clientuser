@@ -17,3 +17,8 @@
   background-color: orange;
   color: white; /* Optional */
 }
+
+.selected {
+  background-color: green;
+  color: white;
+}
