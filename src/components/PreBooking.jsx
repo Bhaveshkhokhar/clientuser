@@ -195,11 +195,16 @@ const PreBooking = () => {
                         if (data.status === "success") {
                           alert("your booking is confirmed");
                           handleUpdateBooking(data.confirmbooking_id);
+                          navigate("/yourbooking")
                         }
                       })
                       .catch(() => {
                         alert("Verification failed");
                       });
+                  },
+
+                  modal: {
+                    ondismiss: () => navigate("/yourbooking"),
                   },
 
                   prefill: {
@@ -214,7 +219,6 @@ const PreBooking = () => {
 
                 const rzp = new window.Razorpay(options);
                 await rzp.open();
-                navigate("/yourbooking");
               })
               .catch((err) => {
                 console.error("Error during booking:", err);
