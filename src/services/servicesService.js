@@ -1,7 +1,7 @@
 export const getTheServices = async (signal) => {
   try {
     const response = await fetch(
-      "https://serverofchefbooking.onrender.com/service",
+      `${import.meta.env.VITE_BACKEND_URL}/service`,
       signal,
     );
     const data = await response.json();

@@ -1,7 +1,7 @@
 export const getUserData = async (signal, handleuserProfile) => {
   try {
     const response = await fetch(
-      "https://serverofchefbooking.onrender.com/userDetail",
+      `${import.meta.env.VITE_BACKEND_URL}/userDetail`,
       {
         signal,
         credentials: "include",

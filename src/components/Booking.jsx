@@ -35,7 +35,7 @@ const Booking = ({ chef }) => {
       data.getDate() === today.getDate() &&
       data.getMonth() === today.getMonth() &&
       data.getFullYear() === today.getFullYear();
-    fetch("https://serverofchefbooking.onrender.com/getbookingtime", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/getbookingtime`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,14 +79,14 @@ const Booking = ({ chef }) => {
                 return time;
               }
               return time;
-            })
+            }),
           );
         }
       })
       .catch((err) => {
         console.error("Error during getting booking info:", err);
         alert(
-          "An error occurred during getting booking info. Please try again."
+          "An error occurred during getting booking info. Please try again.",
         );
       });
   };
@@ -101,7 +101,7 @@ const Booking = ({ chef }) => {
   const handleBooking = () => {
     if (loginstate) {
       if (user.status) {
-        fetch("https://serverofchefbooking.onrender.com/handlePreBooking", {
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/handlePreBooking`, {
           method: "POST",
           body: JSON.stringify({
             chefid: chef.id,
@@ -117,10 +117,10 @@ const Booking = ({ chef }) => {
                 alert(data.message);
                 handleuserProfile(false);
                 return;
-              } else if(res.status===403){
+              } else if (res.status === 403) {
                 alert(data.message);
                 return;
-              }else if (res.status === 404) {
+              } else if (res.status === 404) {
                 alert(data.message);
                 if (data.message === "user is not authenticated please login") {
                   handleuserProfile(false);
@@ -158,8 +158,10 @@ const Booking = ({ chef }) => {
             console.error("Error during booking:", err);
             alert("An error occurred during booking. Please try again.");
           });
-      }else{
-        alert("Your Account is Blocked from Host side for further info please contact us");
+      } else {
+        alert(
+          "Your Account is Blocked from Host side for further info please contact us",
+        );
       }
     } else {
       alert("please login");

@@ -30,7 +30,7 @@ const ProfileDetailUpdate = () => {
       Name.current.focus();
       return;
     }
-    fetch("https://serverofchefbooking.onrender.com/updateUserData", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/updateUserData`, {
       method: "POST",
       body: JSON.stringify({
         Name: Name.current.value,

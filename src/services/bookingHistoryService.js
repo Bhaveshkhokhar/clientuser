@@ -1,7 +1,7 @@
 export const getBookingHistoryData = async (signal, handleuserProfile) => {
   try {
     const response = await fetch(
-      "https://serverofchefbooking.onrender.com/getYourBookingsHistory",
+      `${import.meta.env.VITE_BACKEND_URL}/getYourBookingsHistory`,
       {
         signal,
         credentials: "include",

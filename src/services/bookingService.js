@@ -1,7 +1,7 @@
 export const getBookingData = async (signal, handleuserProfile) => {
   try {
     const response = await fetch(
-      "https://serverofchefbooking.onrender.com/getYourBookings",
+      `${import.meta.env.VITE_BACKEND_URL}/getYourBookings`,
       {
         signal,
         credentials: "include",
@@ -62,7 +62,7 @@ export const cancelBooking = async (
 ) => {
   try {
     const response = await fetch(
-      "https://serverofchefbooking.onrender.com/cancelBooking",
+      `${import.meta.env.VITE_BACKEND_URL}/cancelBooking`,
       {
         method: "POST",
         body: JSON.stringify({ id, date, time, chefid, bookedAt }),

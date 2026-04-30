@@ -62,7 +62,7 @@ const ProfileDetailAdd = () => {
     if (selectedFile) {
       formData.append("image", selectedFile);
     }
-    fetch("https://serverofchefbooking.onrender.com/addUserData", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/addUserData`, {
       method: "POST",
       body: formData,
       credentials: "include",

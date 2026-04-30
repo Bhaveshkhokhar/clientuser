@@ -8,7 +8,7 @@ import { BookingStore } from "../store/BookingStore";
 const PreBooking = () => {
   const { chefs } = useContext(ChefsStore);
   const { user } = useContext(UserStore);
-  const { handleAddBooking } = useContext(BookingStore);
+  const { handleAddBooking,handleUpdateBooking } = useContext(BookingStore);
   const { loginstate, handleuserProfile } = useContext(authContext);
   const [paymentMethod, setPaymentMethod] = useState("COD");
   const address = useRef();
@@ -35,7 +35,7 @@ const PreBooking = () => {
       if (user.status) {
         if (location.state) {
           if (paymentMethod === "COD") {
-            fetch(" https://serverofchefbooking.onrender.com/confirmBooking", {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/confirmBooking`, {
               method: "POST",
               credentials: "include",
               headers: { "Content-Type": "application/json" },
@@ -95,6 +95,131 @@ const PreBooking = () => {
                 alert("An error occurred during booking. Please try again.");
               });
           } else if (paymentMethod === "online") {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/createOrder`, {
+              method: "POST",
+              credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                modeOfPayment: "ONLINE",
+                chefid,
+                date,
+                time,
+                userid: user.id,
+                address: address.current.value,
+              }),
+            })
+              .then(async (res) => {
+                const data = await res.json();
+                if (!res.ok) {
+                  if (res.status === 401) {
+                    alert(data.message);
+                    handleuserProfile(false);
+                    return;
+                  } else if (res.status == 403) {
+                    alert(data.message);
+                    return;
+                  } else if (res.status === 404) {
+                    alert(data.message);
+                    if (
+                      data.message === "user is not authenticated please login"
+                    ) {
+                      handleuserProfile(false);
+                    } else {
+                      navigate("chefs/All Chefs");
+                    }
+                    return;
+                  } else if (res.status === 500) {
+                    alert(data.message);
+                    return;
+                  } else if (res.status === 409) {
+                    alert(data.message);
+                    return;
+                  } else if (res.status === 422) {
+                    alert(data.message);
+                    return;
+                  }
+                  throw new Error("getting book info fail");
+                }
+                return data;
+              })
+              .then(async (data) => {
+                if (!data) return;
+                handleAddBooking(data.confirmbooking);
+                //add code here also after getting response verify payment add cofirm booking and then navigate to your booking page
+                const options = {
+                  key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+                  amount: data.order.amount,
+                  currency: data.order.currency,
+                  name: "Chef Booking",
+                  description: "Booking Payment",
+                  order_id: data.order.id,
+
+                  handler: function (response) {
+                    // ✅ VERIFY PAYMENT
+                    fetch(`${import.meta.env.VITE_BACKEND_URL}/verifyPayment`, {
+                      method: "POST",
+                      credentials: "include",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify(response),
+                    })
+                      .then((res) => {
+                        if (!res.ok) {
+                          if (res.status === 401) {
+                            alert(data.message);
+                            handleuserProfile(false);
+                            return;
+                          } else if (res.status == 403) {
+                            alert(data.message);
+                            return;
+                          } else if (res.status === 404) {
+                            alert(data.message);
+                            if (
+                              data.message ===
+                              "User not found please sign in"
+                            ) {
+                              handleuserProfile(false);
+                            } else {
+                              navigate("chefs/All Chefs");
+                            }
+                            return;
+                          } else if (res.status === 500) {
+                            alert(data.message);
+                            return;
+                          }
+                          throw new Error("Payment verification failed");
+                        }
+                        return res.json();
+                      })
+                      .then((data) => {
+                        if (!data) return;
+                        if (data.status === "success") {
+                          alert("your booking is confirmed");
+                          handleUpdateBooking(data.confirmbooking_id);
+                        }
+                      })
+                      .catch(() => {
+                        alert("Verification failed");
+                      });
+                  },
+
+                  prefill: {
+                    name: user.name,
+                    contact: user.mobile,
+                  },
+
+                  theme: {
+                    color: "#3399cc",
+                  },
+                };
+
+                const rzp = new window.Razorpay(options);
+                await rzp.open();
+                navigate("/yourbooking");
+              })
+              .catch((err) => {
+                console.error("Error during booking:", err);
+                alert("An error occurred during booking. Please try again.");
+              });
           } else {
             alert("not a valid payment method");
           }
@@ -181,7 +306,7 @@ const PreBooking = () => {
             </label>
           </div>
           <div className="form-check mb-2">
-            {/* <input
+            <input
               className="form-check-input"
               type="radio"
               name="paymentMethod"
@@ -189,9 +314,9 @@ const PreBooking = () => {
               value="online"
               checked={paymentMethod === "online"}
               onChange={() => setPaymentMethod("online")}
-            /> */}
+            />
             <label className="form-check-label" htmlFor="online">
-              Online Payment Will be available soon
+              Online Payment
             </label>
           </div>
         </div>

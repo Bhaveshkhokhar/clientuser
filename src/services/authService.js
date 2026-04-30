@@ -1,7 +1,7 @@
 export const checkAuthStatus = async (signal) => {
   try {
     const response = await fetch(
-      "https://serverofchefbooking.onrender.com/checkauthstatus",
+      `${import.meta.env.VITE_BACKEND_URL}/checkauthstatus`,
       {
         method: "GET",
         credentials: "include",

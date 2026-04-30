@@ -12,7 +12,7 @@ const Header = () => {
   const handlesignout = (e) => {
     // e.preventDefault();
 
-    fetch("https://serverofchefbooking.onrender.com/logout", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/logout`, {
       method: "POST",
       credentials: "include",
     })

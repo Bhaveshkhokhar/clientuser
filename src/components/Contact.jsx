@@ -26,7 +26,7 @@ const Contact = () => {
       message: message.current.value,
     };
 
-    fetch("https://serverofchefbooking.onrender.com/contact", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

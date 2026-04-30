@@ -9,7 +9,8 @@ import { Navigate, useLocation } from "react-router-dom";
 const Yourbooking = () => {
   const { loginstate } = useContext(authContext);
   const location = useLocation();
-  const { bookingdata, handleCancelBooking } = useContext(BookingStore);
+  const { bookingdata, handleCancelBooking, handleRetryPayment } =
+    useContext(BookingStore);
   const sortedBookings = [...bookingdata].sort(
     (a, b) => new Date(b.date) - new Date(a.date),
   );
@@ -77,6 +78,7 @@ const Yourbooking = () => {
                   </p>
                 </div>
                 <div className="d-flex justify-content-center mt-3">
+                  <span style={{ marginRight: "10px" }}>
                   <button
                     className={styles.Button}
                     type="button"
@@ -92,6 +94,20 @@ const Yourbooking = () => {
                   >
                     Cancel booking
                   </button>
+                  </span>
+                  {!booking.paid && (
+                    <span>
+                    <button
+                      className={styles.Button}
+                      type="button"
+                      onClick={() => {
+                        handleRetryPayment(booking.booking_id);
+                      }}
+                    >
+                      Pay Now
+                    </button>
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
