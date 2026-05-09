@@ -42,7 +42,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="https://chefwale.s3.us-west-2.amazonaws.com/public/PIC2.png"
+            src={`${import.meta.env.VITE_S3_BASE_URL}/public/PIC2.png`}
             alt=""
           />
         </Carousel.Item>
@@ -50,7 +50,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="https://chefwale.s3.us-west-2.amazonaws.com/public/PIC1.jpg"
+            src={`${import.meta.env.VITE_S3_BASE_URL}/public/PIC1.jpg`}
             alt=""
           />
         </Carousel.Item>
@@ -58,7 +58,7 @@ function HomeImages() {
           <img
             className="d-block w-100"
             style={{ height: "500px", objectFit: "cover" }}
-            src="https://chefwale.s3.us-west-2.amazonaws.com/public/PIC3.jpg"
+            src={`${import.meta.env.VITE_S3_BASE_URL}/public/PIC3.jpg`}
             alt=""
           />
         </Carousel.Item>

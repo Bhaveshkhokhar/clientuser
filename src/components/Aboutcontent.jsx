@@ -7,7 +7,7 @@ const Aboutcontent = () => {
         <div className="row align-items-center">
           <div className="col-12 col-md-4 mb-3 mb-md-0">
             <img
-              src="https://chefwale.s3.us-west-2.amazonaws.com/public/about.jpg"
+              src={`${import.meta.env.VITE_S3_BASE_URL}/public/about.jpg`}
               className="img-fluid"
               alt="About"
               style={{ borderRadius: "10px", width: "100%", height: "auto" }}

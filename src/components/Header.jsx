@@ -52,7 +52,7 @@ const Header = () => {
             <img
               width="50px"
               height="50px"
-              src="https://chefwale.s3.us-west-2.amazonaws.com/public/Chefwalelogo.png"
+              src={`${import.meta.env.VITE_S3_BASE_URL}/public/Chefwalelogo.png`}
               alt="ChefWale"
             />
           </Link>

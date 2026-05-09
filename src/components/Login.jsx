@@ -100,7 +100,7 @@ const Login = () => {
           >
             <div className="w-100 d-flex justify-content-center mt-4 mb-0 ">
               <img
-                src="https://chefwale.s3.us-west-2.amazonaws.com/public/Chefwalelogo.png"
+                src={`${import.meta.env.VITE_S3_BASE_URL}/public/Chefwalelogo.png`}
                 alt="ChefWale Logo"
                 style={{ width: "90px", height: "90px", objectFit: "contain" }}
               />

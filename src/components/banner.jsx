@@ -40,8 +40,8 @@ const Banner = () => {
             height="700px"
             src={
               isMobile
-                ? "https://chefwale.s3.us-west-2.amazonaws.com/public/banner1.png"
-                : "https://chefwale.s3.us-west-2.amazonaws.com/public/banner2.png"
+                ? `${import.meta.env.VITE_S3_BASE_URL}/public/banner1.png`
+                : `${import.meta.env.VITE_S3_BASE_URL}/public/banner2.png`
             }
             alt="Chef"
           />

@@ -24,7 +24,7 @@ const ProfileDetailAdd = () => {
   const Birthdate = useRef();
   const Gender = useRef();
   const [previewImg, setPreviewImg] = useState(
-    "https://chefwale.s3.us-west-2.amazonaws.com/public/defaultpic.jpg",
+    `${import.meta.env.VITE_S3_BASE_URL}/public/defaultpic.jpg`,
   );
   const [selectedFile, setSelectedFile] = useState(null);
   // Handle image upload and preview

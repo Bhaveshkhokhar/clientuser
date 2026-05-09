@@ -75,8 +75,7 @@ const Contact = () => {
     <>
       <div
         style={{
-          backgroundImage:
-            "url('https://chefwale.s3.us-west-2.amazonaws.com/public/contact.jpg')",
+          backgroundImage: `url('${import.meta.env.VITE_S3_BASE_URL}/public/contact.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
